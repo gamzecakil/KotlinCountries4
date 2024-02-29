@@ -36,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    //fragmentlardaki layout tagı için koymamız gerekli
+    dataBinding{
+        enabled = true
+    }
 }
 def nav_version = "2.4.1"
 def lifeCycleExtensionVersion = '1.1.1'
