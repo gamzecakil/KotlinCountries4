@@ -3,9 +3,11 @@ package com.gamzeuysal.kotlincountries4.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.gamzeuysal.kotlincountries4.R
 import com.gamzeuysal.kotlincountries4.model.Country
+import com.gamzeuysal.kotlincountries4.view.FeedFragmentDirections
 import kotlinx.android.synthetic.main.item_country.view.*
 
 class CountryAdapter(val countyList :ArrayList<Country>) :RecyclerView.Adapter<CountryAdapter.CountryViewHolder>(){
@@ -23,6 +25,12 @@ class CountryAdapter(val countyList :ArrayList<Country>) :RecyclerView.Adapter<C
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
          holder.view.name.text = countyList.get(position).countryName
          holder.view.region.text = countyList.get(position).countryRegion
+       //tıklama deneme
+        holder.view.setOnClickListener {
+            //recyclerview da bir view tıklandıgında
+         val action = FeedFragmentDirections.actionFeedFragmentToCountyFragment()
+         Navigation.findNavController(it).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
